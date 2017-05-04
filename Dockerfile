@@ -29,7 +29,7 @@ RUN apk add --update --virtual build-dependencies wget git g++ python linux-head
                           ../../node/out/Release/libzlib.a \
                           ../../node/out/Release/libcares.a \
         -Wl,--end-group \
-        -lrt && \
+        -lrt -z noexecstack && \
 
     # Cleanup
     apk del build-dependencies && \
