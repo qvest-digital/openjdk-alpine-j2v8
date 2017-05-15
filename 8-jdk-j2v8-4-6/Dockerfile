@@ -11,7 +11,7 @@ RUN apk add --update --virtual build-dependencies wget git g++ python linux-head
 
     # Download and build J2V8 4.6.0 (with tests patched for V8 5.x via node 6.1.0)
     # Source: https://github.com/eclipsesource/J2V8/issues/151
-    cd /data/ && git clone https://github.com/eclipsesource/J2V8.git && cd /data/J2V8/ && git checkout -b 7dedc23b42465d08cc75b0d32c23eda7e6a6e9d1 && \
+    cd /data/ && git clone https://github.com/eclipsesource/J2V8.git && cd /data/J2V8/ && git checkout 7dedc23b42465d08cc75b0d32c23eda7e6a6e9d1 && \
     cd /data/J2V8/jni && \
     g++ -I ../../node -I ../../node/deps/v8 -I ../../node/deps/v8/include \
         -I ../../node/src -I $JAVA_HOME -I $JAVA_HOME/linux  \
