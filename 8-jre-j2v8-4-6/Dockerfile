@@ -14,7 +14,7 @@ RUN apk add --update --virtual build-dependencies wget git g++ python linux-head
     cd /data/ && git clone https://github.com/eclipsesource/J2V8.git && cd /data/J2V8/ && git checkout 7dedc23b42465d08cc75b0d32c23eda7e6a6e9d1 && \
     cd /data/J2V8/jni && \
     g++ -I ../../node -I ../../node/deps/v8 -I ../../node/deps/v8/include \
-        -I ../../node/src -I /usr/lib/jvm/java-1.8-openjdk -I /usr/lib/jvm/java-1.8-openjdk/linux  \
+        -I ../../node/src -I $JAVA_HOME -I $JAVA_HOME/linux  \
         com_eclipsesource_v8_V8Impl.cpp -std=c++11 -fPIC -shared -o /usr/lib/libj2v8_linux_x86_64.so \
         -Wl,--whole-archive ../../node/out/Release/libnode.a -Wl,--no-whole-archive \
         -Wl,--start-group \
@@ -29,7 +29,7 @@ RUN apk add --update --virtual build-dependencies wget git g++ python linux-head
                           ../../node/out/Release/libzlib.a \
                           ../../node/out/Release/libcares.a \
         -Wl,--end-group \
-        -lrt -z noexecstack && \
+        -lrt -z noexecstack -D NODE_COMPATIBLE=1 && \
 
     # Cleanup
     apk del build-dependencies && \
