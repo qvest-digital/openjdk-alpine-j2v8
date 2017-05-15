@@ -31,6 +31,9 @@ RUN apk add --update --virtual build-dependencies wget git g++ python linux-head
         -Wl,--end-group \
         -lrt -z noexecstack -D NODE_COMPATIBLE=1 && \
 
+    # https://github.com/eclipsesource/J2V8/commit/67bfd09f24fece7a0eddcbb0388a572c895c4b8e
+    strip --strip-unneeded -R .note -R .comment /usr/lib/libj2v8_linux_x86_64.so && \
+
     # Cleanup
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
