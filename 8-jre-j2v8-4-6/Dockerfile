@@ -1,7 +1,7 @@
 FROM openjdk:8-jre-alpine
 
 ENV CCFLAGS="${CCFLAGS} -fPIC" CXXFLAGS="${CXXFLAGS} -fPIC" CPPFLAGS="${CPPFLAGS} -fPIC"
-RUN apk add --update --virtual build-dependencies wget git g++ python linux-headers alpine-sdk binutils-gold openjdk8-jre="$JAVA_ALPINE_VERSION" --no-cache && \
+RUN apk add --update --virtual build-dependencies wget git g++ python linux-headers alpine-sdk binutils-gold --no-cache && \
     mkdir data && cd data && \
 
     # Download and build the matching nodejs version for J2V8 4.6.0
