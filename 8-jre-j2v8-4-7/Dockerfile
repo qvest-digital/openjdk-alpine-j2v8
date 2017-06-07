@@ -4,7 +4,7 @@ RUN apk add --update --virtual build-dependencies wget git g++ python linux-head
 
     # Download and build J2V8 4.7.0
     # Source: https://github.com/eclipsesource/J2V8/issues/151
-    mkdir /data/ && cd /data/ && git clone https://github.com/eclipsesource/J2V8.git && cd /data/J2V8/ && git checkout 8bd1893328ec701472d5b6d3e6f99e800a3278ec && \
+    mkdir /data/ && cd /data/ && git clone https://github.com/eclipsesource/J2V8.git && cd /data/J2V8/ && git checkout 03589e2d8cd5e999894db8266df6ce66863a9073 && \
 
     # Set compiler flags
     export CCFLAGS="${CCFLAGS} -fPIC" CXXFLAGS="${CXXFLAGS} -fPIC" CPPFLAGS="${CPPFLAGS} -fPIC" && \
